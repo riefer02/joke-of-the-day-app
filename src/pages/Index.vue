@@ -56,6 +56,7 @@ export default {
           this.delivery = res.data.delivery;
           this.joke = res.data.joke;
         });
+      this.revealJoke = false;
     },
     revealDelivery() {
       this.revealJoke = true;
