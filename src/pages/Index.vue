@@ -4,7 +4,10 @@
       <q-card-section>
         <div class="flex justify-between">
           <div class="text-h6">Joke of the Day</div>
-          <q-btn size="sm" class="bg-white text-grey-9" @click="getJoke()"
+          <q-btn
+            size="sm"
+            class="bg-white text-grey-9 q-ml-md"
+            @click="getJoke()"
             >New Joke</q-btn
           >
         </div>
