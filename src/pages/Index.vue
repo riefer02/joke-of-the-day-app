@@ -2,7 +2,12 @@
   <q-page class="flex flex-center">
     <q-card dark bordered class="bg-grey-9 my-card">
       <q-card-section>
-        <div class="text-h6">Joke of the Day</div>
+        <div class="flex justify-between">
+          <div class="text-h6">Joke of the Day</div>
+          <q-btn size="sm" class="bg-white text-grey-9" @click="getJoke()"
+            >New Joke</q-btn
+          >
+        </div>
         <div class="text-subtitle2">by Jordan Hughes</div>
       </q-card-section>
 
@@ -13,7 +18,9 @@
       </q-card-section>
       <div v-if="!joke">
         <div class="flex flex-center">
-          <q-btn class="q-mb-md" @click="revealDelivery()">Punchline!</q-btn>
+          <q-btn class="q-mb-md bg-white text-grey-9" @click="revealDelivery()"
+            >Punchline!</q-btn
+          >
         </div>
 
         <q-card-section v-if="revealJoke">
