@@ -9,14 +9,17 @@
       <q-separator dark inset />
 
       <q-card-section>
-        {{ setup }}
+        {{ setup ? setup : joke }}
       </q-card-section>
-      <div class="flex flex-center">
-        <q-btn class="q-mb-md" @click="revealDelivery()">Punchline!</q-btn>
+      <div v-if="!joke">
+        <div class="flex flex-center">
+          <q-btn class="q-mb-md" @click="revealDelivery()">Punchline!</q-btn>
+        </div>
+
+        <q-card-section v-if="revealJoke">
+          {{ delivery }}
+        </q-card-section>
       </div>
-      <q-card-section v-if="revealJoke">
-        {{ delivery }}
-      </q-card-section>
     </q-card>
   </q-page>
 </template>
@@ -27,6 +30,7 @@ export default {
   data: () => ({
     delivery: undefined,
     setup: undefined,
+    joke: undefined,
     revealJoke: false,
   }),
   mounted() {
@@ -40,6 +44,7 @@ export default {
           console.log(res);
           this.setup = res.data.setup;
           this.delivery = res.data.delivery;
+          this.joke = res.data.joke;
         });
     },
     revealDelivery() {
